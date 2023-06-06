@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/allProductFragment">
+
+    <fragment
+        android:id="@+id/allProductFragment"
+        android:name="com.mehedi.makeupapi_2204.AllProductFragment"
+        android:label="fragment_all_product"
+        tools:layout="@layout/fragment_all_product" >
+        <action
+            android:id="@+id/action_allProductFragment_to_detailsProductFragment"
+            app:destination="@id/detailsProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsProductFragment"
+        android:name="com.mehedi.makeupapi_2204.DetailsProductFragment"
+        android:label="fragment_details_product"
+        tools:layout="@layout/fragment_details_product" />
+</navigation>
