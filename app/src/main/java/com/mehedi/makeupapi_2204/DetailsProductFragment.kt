@@ -30,7 +30,7 @@ class DetailsProductFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDetailsProductBinding.inflate(inflater, container, false)
 
-        var productID = requireArguments().getInt(PRODUCT_KEY)
+        val productID = requireArguments().getInt(PRODUCT_KEY)
 
 
         service.getAllProductById(productID).enqueue(object : Callback<ResponseProduct> {

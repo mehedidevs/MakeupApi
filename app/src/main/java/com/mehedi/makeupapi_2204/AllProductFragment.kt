@@ -40,7 +40,7 @@ class AllProductFragment : Fragment(),
         binding.productItemRcv.adapter = adapter
 
 
-        var callApiService = service.getAllProducts()
+        val callApiService = service.getAllProducts()
 
         callApiService.enqueue(object : retrofit2.Callback<List<ResponseProduct>> {
             override fun onResponse(
@@ -71,10 +71,6 @@ class AllProductFragment : Fragment(),
         return binding.root
     }
 
-
-    companion object {
-
-    }
 
     override fun productClickedListener(productId: Int) {
 
