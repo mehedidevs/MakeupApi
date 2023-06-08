@@ -9,14 +9,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.mehedi.makeupapi_2204.databinding.FragmentAllProductBinding
+import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-
-class AllProductFragment : Fragment(), ProductAdapter.ProductListener {
+@AndroidEntryPoint
+class AllProductFragment : Fragment(),
+    ProductAdapter.ProductListener {
 
     lateinit var adapter: ProductAdapter
+
+    @Inject
+    lateinit var service: ProductService
 
 
     lateinit var binding: FragmentAllProductBinding
@@ -34,9 +40,7 @@ class AllProductFragment : Fragment(), ProductAdapter.ProductListener {
         binding.productItemRcv.adapter = adapter
 
 
-
-
-        var callApiService = RetrofitClient.service.getAllProducts()
+        var callApiService = service.getAllProducts()
 
         callApiService.enqueue(object : retrofit2.Callback<List<ResponseProduct>> {
             override fun onResponse(
